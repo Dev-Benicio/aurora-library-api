@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Livros</title>
+</head>
+<body>
+    <h1>Lista de Livros</h1>
+    <ul id="book-list"></ul>
+
+    <script>
+        // Faz uma requisição ao endpoint para obter a lista de livros
+        fetch('/book')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const bookList = document.getElementById('book-list');
+                data.forEach(book => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${book.title} - ${book.author}`; // Exiba o título e o autor do livro
+                    bookList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    </script>
+</body>
+</html>

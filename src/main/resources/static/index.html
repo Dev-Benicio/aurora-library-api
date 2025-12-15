@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Livros</title>
+</head>
+<body>
+    <h1>Lista de Livros</h1>
+    <p>
+        <a id="link-users">Users</a><br>
+        <a id="link-loans">Loans</a><br>
+        <a id="link-books">Books</a><br>
+        <a id="link-swagger">Swagger</a>
+    </p>
+    
+    <script>
+        // Pega a URL atual
+        let url = window.location.href;
+
+        // Cria as URLs dinâmicas
+        let users = url + "users";
+        let loans = url + "loans";
+        let books = url + "books";
+        let swagger = url + "swagger-ui.html";
+
+        // Define os links
+        document.getElementById("link-users").href = users;
+        document.getElementById("link-loans").href = loans;
+        document.getElementById("link-books").href = books;
+        document.getElementById("link-swagger").href = swagger;
+    </script>
+</body>
+</html>

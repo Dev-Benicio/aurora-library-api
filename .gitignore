@@ -1,0 +1,42 @@
+### IDEs & Editores ###
+.idea/
+.vscode/
+*.iws
+*.iml
+*.ipr
+.settings/
+.classpath
+.project
+.factorypath
+.springBeans
+.sts4-cache
+
+### JAVA & MAVEN ###
+target/
+**/target/
+*.jar
+*.war
+.mvn/wrapper/maven-wrapper.jar
+
+### LOGS ###
+logs/
+*.log
+**/logs/
+
+### ENV ###
+.env
+*.env
+
+### APPLICATION.PROPERTIES ###
+!src/main/resources/application.properties
+
+### BANCO DE DADOS ###
+scripts/
+*.sql
+
+### GIT ###
+.git/
+
+### SISTEMA OPERACIONAL ###
+.DS_Store
+Thumbs.db
