@@ -35,7 +35,7 @@
 > Para facilitar a avaliação do projeto, o sistema verifica automaticamente se existe um administrador no banco de dados. Caso não exista, ele cria um usuário padrão com as seguintes credenciais:
 
 - Login: admin@aurora.com <br>
-- Senha: admin123
+- Senha: admin
 
 > Nota: Em um cenário real de produção, a criação de usuários iniciais seria feita via migração segura e as senhas jamais seriam expostas em logs.
 
