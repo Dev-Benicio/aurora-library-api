@@ -63,7 +63,16 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 - ✅ Validação de regras de empréstimo
 - 📚 Documentação
 
-<br>
+## 📚 Documentação da API
+A aplicação conta com documentação automática via Swagger UI, facilitando a visualização e teste dos endpoints.
+
+### 1. Visão Geral dos Recursos
+![Visão Geral Swagger](https://github.com/user-attachments/assets/c70abf6b-17b0-458b-b1ba-cb99b935b8cd)
+
+### 2. Exemplo de Requisição (Endpoints)
+Detalhamento de uma requisição `GET` retornando a lista de livros com paginação simplificada e status **200 OK**:
+![Detalhe JSON](https://github.com/user-attachments/assets/d54abca6-f27c-4a50-a611-8a06f43f2734)
+
 <br>
 
 # 🚀 Como Executar
