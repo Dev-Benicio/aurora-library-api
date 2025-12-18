@@ -65,7 +65,23 @@ public class BookService {
             throw new ResourceNotFoundException("Nenhum livro encontrado");
         }
 
-        return books.map(bookMapperDTO::bookToResponse);
+        return books.map(book -> {
+            BookResponse dto = bookMapperDTO.bookToResponse(book);
+
+            String rawCover = dto.bookCover();
+            String cleanCover = (rawCover != null) ? rawCover.replace("/BookCovers/", "") : null;
+
+            return new BookResponse(
+                    dto.id(),
+                    dto.title(),
+                    dto.category(),
+                    dto.author(),
+                    dto.publisher(),
+                    dto.year(),
+                    dto.quantityBooks(),
+                    cleanCover
+            );
+        });
     }
 
     public BookResponse findById(Long id_book) {

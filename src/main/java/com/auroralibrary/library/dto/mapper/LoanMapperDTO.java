@@ -9,8 +9,9 @@ import com.auroralibrary.library.model.Client;
 import com.auroralibrary.library.model.Loan;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface LoanMapperDTO {
 
   Loan loanCreateToEntity(LoanCreateRequest loanCreateRequest);

@@ -3,6 +3,7 @@ package com.auroralibrary.library.controller;
 import com.auroralibrary.library.dto.modelResponse.EntityModel;
 import com.auroralibrary.library.dto.modelResponse.EntityModelSingle;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import com.auroralibrary.library.dto.request.BookCreateRequest;
 import com.auroralibrary.library.dto.request.BookUpdateRequest;
@@ -70,7 +71,7 @@ public class BookController {
             content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
     })
     @GetMapping
-    public ResponseEntity<EntityModel<BookResponse>> findAll(@PageableDefault(size = 20, sort = "title") Pageable pageable) {
+    public ResponseEntity<EntityModel<BookResponse>> findAll(@ParameterObject @PageableDefault(size = 20, sort = "title") Pageable pageable) {
         Page<BookResponse> books = bookService.findAll(pageable);
         log.info("Books listados com sucesso");
 
@@ -107,6 +108,7 @@ public class BookController {
     })
     @GetMapping("/filters")
     public ResponseEntity<EntityModel<BookResponse>> findFilters(
+            @ParameterObject
             @PageableDefault(size = 20, sort = "title") Pageable pageable,
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String category

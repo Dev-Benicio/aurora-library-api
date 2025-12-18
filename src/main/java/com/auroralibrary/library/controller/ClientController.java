@@ -9,6 +9,7 @@ import com.auroralibrary.library.exception.ErrorResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,7 +18,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.Operation;
@@ -31,7 +31,6 @@ import com.auroralibrary.library.dto.modelResponse.EntityModel;
 que define como o processamento deve ser realizado (CRUD) */
 @Tag(name = "Clients", description = "Gerenciamento de clientes")
 @SecurityRequirement(name = "bearer-key")
-@Slf4j
 @RestController
 @RequestMapping("/clients")
 public class ClientController {
@@ -64,7 +63,7 @@ public class ClientController {
                     @ApiResponse(responseCode = "500", description = "Erro interno do servidor", content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
     })
     @GetMapping
-    public ResponseEntity<EntityModel<ClientResponse>> getClients(@PageableDefault(size = 20, sort = "name") Pageable pageable) {
+    public ResponseEntity<EntityModel<ClientResponse>> getClients(@ParameterObject  @PageableDefault(size = 20, sort = "name") Pageable pageable) {
             Page<ClientResponse> clients = clientService.findAll(pageable);
 
             log.info("[ClienteController] Clientes listados com sucesso | Method: GET | Status: {}",
@@ -102,6 +101,7 @@ public class ClientController {
     public ResponseEntity<EntityModel<ClientResponse>> getClientsByFilters(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String cpf,
+            @ParameterObject
             @PageableDefault(size = 20, sort = "name") Pageable pageable
     ){
 

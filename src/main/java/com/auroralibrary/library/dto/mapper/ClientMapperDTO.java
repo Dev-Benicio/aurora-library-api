@@ -6,8 +6,9 @@ import com.auroralibrary.library.dto.response.ClientResponse;
 import com.auroralibrary.library.model.Client;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring", uses = {AddressMapperDTO.class})
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {AddressMapperDTO.class})
 public interface ClientMapperDTO {
 
     @Mapping(target = "address", ignore = true)

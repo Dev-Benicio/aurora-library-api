@@ -4,6 +4,7 @@ import com.auroralibrary.library.dto.modelResponse.EntityModel;
 import com.auroralibrary.library.dto.modelResponse.EntityModelSingle;
 import com.auroralibrary.library.validation.StringFormatter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -73,7 +74,7 @@ public class LoanController {
             content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
     })
     @GetMapping
-    public ResponseEntity<EntityModel<LoanResponse>> getLoans(@PageableDefault(size = 20, sort =
+    public ResponseEntity<EntityModel<LoanResponse>> getLoans(@ParameterObject  @PageableDefault(size = 20, sort =
             "loanDate", direction = Sort.Direction.DESC) Pageable pageable) {
         Page<LoanResponse> loans = loanService.findAll(pageable);
         log.info("Emprestimos encontrados");
@@ -111,6 +112,7 @@ public class LoanController {
     })
     @GetMapping("/filters")
     public ResponseEntity<EntityModel<LoanResponse>> getLoansFilter(
+            @ParameterObject
             @PageableDefault(size = 20, sort = "loanDate", direction = Sort.Direction.DESC) Pageable pageable,
             @RequestParam(required = false) Boolean isCompleted,
             @RequestParam(required = false) LocalDate loanDate,
