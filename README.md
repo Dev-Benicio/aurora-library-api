@@ -29,16 +29,6 @@
 
 ### 🎯 Público Alvo
 > O sistema é direcionado para bibliotecas locais que buscam modernizar sua gestão através de uma solução digital profissional. Atende especificamente bibliotecários e administradores que necessitam de um sistema confiável para gerenciar empréstimos, controlar acervo e manter cadastro de clientes de forma eficiente e segura. É ideal para organizações que valorizam automação, precisão nos processos e desejam oferecer um serviço de qualidade aos seus frequentadores.
-
-### 🔐 Acesso Rápido (Ambiente de Testes)
-
-> Para facilitar a avaliação do projeto, o sistema verifica automaticamente se existe um administrador no banco de dados. Caso não exista, ele cria um usuário padrão com as seguintes credenciais:
-
-- Login: admin@aurora.com <br>
-- Senha: admin
-
-> Nota: Em um cenário real de produção, a criação de usuários iniciais seria feita via migração segura e as senhas jamais seriam expostas em logs.
-
 ---
 <br>
 
@@ -62,6 +52,7 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 - 🔒 Autenticação segura para funcionários
 - ✅ Validação de regras de empréstimo
 - 📚 Documentação
+<br>
 
 ## 📚 Documentação da API
 A aplicação conta com documentação automática via Swagger UI, facilitando a visualização e teste dos endpoints.
