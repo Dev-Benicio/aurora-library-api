@@ -13,5 +13,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class AuroraLibraryApplication {
     public static void main(String[] args) {
         SpringApplication.run(AuroraLibraryApplication.class, args);
+        
     }
 } 
